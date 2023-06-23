@@ -1,13 +1,14 @@
-const Pizza = ({ name, ingridients, photoName, price }) => {
+const Pizza = ({ pizzaObj }) => {
+  //   if (pizzaObj.soldOut) return null
   return (
-    <div className="pizza">
-      <img src={photoName} alt={name} />
+    <li className={`pizza ${pizzaObj.soldOut ? 'sold-out' : ''}`}>
+      <img src={pizzaObj.photoName} alt={pizzaObj.name} />
       <div className="">
-        <h3>{name}</h3>
-        <p>{ingridients}</p>
-        <span>{price}</span>
+        <h3>{pizzaObj.name}</h3>
+        <p>{pizzaObj.ingredients}</p>
+        <span>{pizzaObj.soldOut ? 'SOLD OUT' : pizzaObj.price}</span>
       </div>
-    </div>
+    </li>
   )
 }
 export default Pizza
